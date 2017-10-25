@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0DE3601FA081B9004D8597 /* Hop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD0DE35E1FA081B9004D8597 /* Hop.cpp */; };
 		CD50EFE21F9AABE300E4769E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFE11F9AABE300E4769E /* main.cpp */; };
 		CD50EFE91F9AAD0700E4769E /* fuzzfier.hpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */; };
 		CD50EFEB1F9AAD1600E4769E /* fuzzfier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFEA1F9AAD1600E4769E /* fuzzfier.cpp */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD0DE35E1FA081B9004D8597 /* Hop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hop.cpp; sourceTree = "<group>"; };
+		CD0DE35F1FA081B9004D8597 /* Hop.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Hop.hpp; sourceTree = "<group>"; };
 		CD50EFDE1F9AABE300E4769E /* Perceptron */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Perceptron; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD50EFE11F9AABE300E4769E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fuzzfier.hpp; sourceTree = "<group>"; };
@@ -64,6 +67,8 @@
 				CD50EFEA1F9AAD1600E4769E /* fuzzfier.cpp */,
 				CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */,
 				CD50EFE11F9AABE300E4769E /* main.cpp */,
+				CD0DE35E1FA081B9004D8597 /* Hop.cpp */,
+				CD0DE35F1FA081B9004D8597 /* Hop.hpp */,
 			);
 			path = Perceptron;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				CD50EFEB1F9AAD1600E4769E /* fuzzfier.cpp in Sources */,
 				CD50EFE91F9AAD0700E4769E /* fuzzfier.hpp in Sources */,
 				CD50EFE21F9AABE300E4769E /* main.cpp in Sources */,
+				CD0DE3601FA081B9004D8597 /* Hop.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
