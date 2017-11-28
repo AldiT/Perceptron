@@ -10,14 +10,35 @@
 
 #include "Hop.hpp"
 #include <iostream>
+#include <pthread.h>
 
+void *_print_message_function(void *ptr);
 
-int main(){
+int main(int argc, char ** argv){
+    pthread_t thread1, thread2;
+    
+    char *message1 = "Thread1";
+    char *message2 = "Thread2";
+    int iret1, iret2;
+    
+    
+    iret1 = pthread_create(&thread1, NULL, _print_message_function, (void*) message1);
+    iret2 = pthread_create(&thread2, NULL, _print_message_function, (void*) message2);
+    
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    
+    printf("Thread1 returns: %d\n", iret1);
+    printf("Thread2 returns: %d\n", iret2);
+    
+    exit(0);
+    
+    /*
     int patrn1[] = {1, 0, 1, 0}, i;
-    int wt1[] = {0, -3, 3, -3};
-    int wt2[] = {-3, 0, -3, 3};
-    int wt3[] = {3, -3, 0, -3};
-    int wt4[] = {-3, 3, -3, 0};
+    int wt1[] = {0, -5, 4, 4};
+    int wt2[] = {-5, 0, 4, 4};
+    int wt3[] = {4, 4, 0, -5};
+    int wt4[] = {4, 4, -5, 0};
     
     std::cout << "THIS PROGRAM IS TO TEST THE HOPFIELD NETWORK WITH A SINGLE LAYER\n"
                 << "OF 4 INTERCONNECTED NEURONS. THE NETWORK SHOULD RECALL THE \n"
@@ -57,11 +78,17 @@ int main(){
         }
     }
     
-    
+    */
     
     return 0;
 }
 
+void *_print_message_function(void *ptr){
+    char * message = (char*) ptr;
+    
+    printf("The message: %s\n", message);
+    return 0;
+}
 
 
 

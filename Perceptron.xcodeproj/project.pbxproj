@@ -11,6 +11,7 @@
 		CD50EFE21F9AABE300E4769E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFE11F9AABE300E4769E /* main.cpp */; };
 		CD50EFE91F9AAD0700E4769E /* fuzzfier.hpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */; };
 		CD50EFEB1F9AAD1600E4769E /* fuzzfier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFEA1F9AAD1600E4769E /* fuzzfier.cpp */; };
+		CDCF0F3A1FCE285D00619B0B /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCF0F381FCE285D00619B0B /* Layer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,8 @@
 		CD50EFE11F9AABE300E4769E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fuzzfier.hpp; sourceTree = "<group>"; };
 		CD50EFEA1F9AAD1600E4769E /* fuzzfier.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fuzzfier.cpp; sourceTree = "<group>"; };
+		CDCF0F381FCE285D00619B0B /* Layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
+		CDCF0F391FCE285D00619B0B /* Layer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Layer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 		CD50EFE01F9AABE300E4769E /* Perceptron */ = {
 			isa = PBXGroup;
 			children = (
+				CDCF0F371FCE283700619B0B /* Backpropagation */,
 				CD50EFEA1F9AAD1600E4769E /* fuzzfier.cpp */,
 				CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */,
 				CD50EFE11F9AABE300E4769E /* main.cpp */,
@@ -71,6 +75,15 @@
 				CD0DE35F1FA081B9004D8597 /* Hop.hpp */,
 			);
 			path = Perceptron;
+			sourceTree = "<group>";
+		};
+		CDCF0F371FCE283700619B0B /* Backpropagation */ = {
+			isa = PBXGroup;
+			children = (
+				CDCF0F381FCE285D00619B0B /* Layer.cpp */,
+				CDCF0F391FCE285D00619B0B /* Layer.hpp */,
+			);
+			path = Backpropagation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +150,7 @@
 				CD50EFE91F9AAD0700E4769E /* fuzzfier.hpp in Sources */,
 				CD50EFE21F9AABE300E4769E /* main.cpp in Sources */,
 				CD0DE3601FA081B9004D8597 /* Hop.cpp in Sources */,
+				CDCF0F3A1FCE285D00619B0B /* Layer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
