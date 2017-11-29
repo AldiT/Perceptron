@@ -65,12 +65,12 @@ public:
     virtual void calc_out();
     void calc_error(float&);
     void randomize_weights();
-    void update_weights();
+    void update_weights(const float);
     void write_weights(int, FILE *);
     void read_weights(int, FILE*);
     void list_errors();
     void list_outputs();
-    
+    void list_weights();
     
 };
 
