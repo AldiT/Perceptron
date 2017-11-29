@@ -24,7 +24,7 @@ protected:
     float *outputs; //pointer to array of outputs
     float *inputs; //pointer to array of inputs, outputs of another layer
     
-    friend Network;
+    friend class Network;
     
 public:
     virtual void calc_out() = 0;
@@ -55,7 +55,7 @@ protected:
     float *back_errors; //array of errors back-propagated
     float * expected_values; //to inputs
     
-    friend Network;
+    friend class Network;
     
     
 public:

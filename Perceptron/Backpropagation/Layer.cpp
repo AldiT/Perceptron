@@ -78,8 +78,8 @@ void Input_Layer::calc_out(){
 Output_Layer::Output_Layer(int i, int o){
     num_inputs = i;
     num_outputs = o;
-    weights = new float[num_inputs*num_outputs];
-    output_errors = new float[num_outputs];
+    weights = new float[num_inputs*num_outputs];//It is a matrix of weights which is used as a vector for simplicity
+    output_errors = new float[num_outputs];                             //avoiding three loops and shit
     back_errors = new float[num_inputs];
     outputs = new float[num_outputs];
     expected_values = new float[num_outputs];
@@ -104,6 +104,7 @@ void Output_Layer::calc_out(){
     
     float accumulator = 0.0;
     
+    //It updates the weights like from the rows.
     for(j = 0; j < num_outputs; j++){
         for(i = 0 ; i < num_inputs; i++){
             k = i*num_outputs;
@@ -113,11 +114,11 @@ void Output_Layer::calc_out(){
                           << "[[ABORTING]]\n";
                 exit(1);
             }
-            outputs[j]=weights[k+j]*(*(inputs+i));
+            outputs[j]=weights[k+j]*(*(inputs+i));//Calculate the activation value(input*output)
             accumulator+=outputs[j];
         }
-        outputs[j] = squash(accumulator);
-        accumulator = 0;
+        outputs[j] = squash(accumulator);//Get the actual output by passing the activation value to the
+        accumulator = 0;                                //threshold function
     }
 }
 
@@ -217,7 +218,7 @@ void Output_Layer::write_weights(int layer_no, FILE * weights_file_ptr){
         k = i*num_outputs;
         fprintf(weights_file_ptr, "%i ", layer_no);
         for(j = 0; j < num_outputs; j++){
-            fprintf(weights_file_ptr, "%f ", weights[k+j]);
+            fprintf(weights_file_ptr, "%f", weights[k+j]);
         }
         fprintf(weights_file_ptr, "\n");
     }
@@ -284,10 +285,10 @@ void Output_Layer::list_outputs(){
 Middle_Layer::Middle_Layer(int i, int o): Output_Layer(i, o){}
 
 Middle_Layer::~Middle_Layer(){
-    delete weights;
-    delete output_errors;
-    delete outputs;
-    delete back_errors;
+    delete[] weights;
+    delete[] output_errors;
+    delete[] outputs;
+    delete[] back_errors;
 }
 
 void Middle_Layer::calc_error(){
@@ -307,6 +308,12 @@ void Middle_Layer::calc_error(){
         back_errors[i] *= (*(inputs+i) * (1- *(inputs+i)));
     }
 }
+
+
+//--------------------------------------------------------------------------------------------
+//                                  NETWORK
+//--------------------------------------------------------------------------------------------
+
 
 Network::Network(){
     position = 0L;
@@ -340,7 +347,7 @@ void Network::get_layer_info(){
     using namespace std;
     
     cout << " Please enter in the number of layers for your network.\n";
-    cout << " You can have a minimum 3 and a maximum of 5.\n";
+    cout << " You can have a minimum of 3 and a maximum of 5.\n";
     cout << " Three consists of one hidden layer and five consists of 3 hidden layers.\n\n";
     
     cin >> number_of_layers;
@@ -551,7 +558,8 @@ void Network::set_up_pattern(int buffer_index){
         k = buffer_index*ins;
     
     for(i = 0; i < ins; i++){
-        layer_ptr[0]->outputs[i] = buffer[k+i];
+        layer_ptr[0]->outputs[i] = buffer[k+i];//these are the outputs of the input layer
+                                                //which means the inputs of the network
     }
     
     if(training == 1){

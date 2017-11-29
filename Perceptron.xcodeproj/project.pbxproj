@@ -11,6 +11,7 @@
 		CD50EFE21F9AABE300E4769E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFE11F9AABE300E4769E /* main.cpp */; };
 		CD50EFE91F9AAD0700E4769E /* fuzzfier.hpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */; };
 		CD50EFEB1F9AAD1600E4769E /* fuzzfier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD50EFEA1F9AAD1600E4769E /* fuzzfier.cpp */; };
+		CD63DBD11FCF123F009B2D60 /* backprop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD63DBD01FCF123F009B2D60 /* backprop.cpp */; };
 		CDCF0F3A1FCE285D00619B0B /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDCF0F381FCE285D00619B0B /* Layer.cpp */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		CD50EFE11F9AABE300E4769E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CD50EFE81F9AAD0700E4769E /* fuzzfier.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fuzzfier.hpp; sourceTree = "<group>"; };
 		CD50EFEA1F9AAD1600E4769E /* fuzzfier.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fuzzfier.cpp; sourceTree = "<group>"; };
+		CD63DBD01FCF123F009B2D60 /* backprop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = backprop.cpp; sourceTree = "<group>"; };
 		CDCF0F381FCE285D00619B0B /* Layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
 		CDCF0F391FCE285D00619B0B /* Layer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Layer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 			children = (
 				CDCF0F381FCE285D00619B0B /* Layer.cpp */,
 				CDCF0F391FCE285D00619B0B /* Layer.hpp */,
+				CD63DBD01FCF123F009B2D60 /* backprop.cpp */,
 			);
 			path = Backpropagation;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				CD50EFEB1F9AAD1600E4769E /* fuzzfier.cpp in Sources */,
 				CD50EFE91F9AAD0700E4769E /* fuzzfier.hpp in Sources */,
 				CD50EFE21F9AABE300E4769E /* main.cpp in Sources */,
+				CD63DBD11FCF123F009B2D60 /* backprop.cpp in Sources */,
 				CD0DE3601FA081B9004D8597 /* Hop.cpp in Sources */,
 				CDCF0F3A1FCE285D00619B0B /* Layer.cpp in Sources */,
 			);
@@ -266,6 +270,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 579LMQZ36P;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.13;
 			};
 			name = Debug;
 		};
@@ -275,6 +280,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 579LMQZ36P;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.13;
 			};
 			name = Release;
 		};
