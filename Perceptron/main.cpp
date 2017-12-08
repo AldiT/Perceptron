@@ -13,11 +13,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <fstream>
 
-#define TRAINING_FILE "training.dat"
-#define WEIGHTS_FILE "weights.dat"
-#define OUTPUT_FILE "output.dat"
-#define TEST_FILE "test.dat"
+//add the absolute path (the path below is unix like)
+#define TRAINING_FILE "/Users/alditopalli/Documents/aldis docs/C/Perceptron/Perceptron/training.txt"
+#define WEIGHTS_FILE "/Users/alditopalli/Documents/aldis docs/C/Perceptron/Perceptron/weights.txt"
+#define OUTPUT_FILE "/Users/alditopalli/Documents/aldis docs/C/Perceptron/Perceptron/output.txt"
+#define TEST_FILE "/Users/alditopalli/Documents/aldis docs/C/Perceptron/Perceptron/test.txt"
+
+int clear_cin_from_white_space(){
+    char temp;
+    
+    while(std::cin >> temp){
+        if(temp == '\n')
+            continue;
+        else{
+            std::cin.putback(temp);
+            return 0;
+        }
+    }
+    return 0;
+}
 
 int main(int argc, char** argv){
     float error_tolerance = 0.1;
@@ -38,7 +54,8 @@ int main(int argc, char** argv){
     //network object of backpropagation network
     Network backp;
     
-    FILE *training_file_ptr, *weights_file_ptr, *output_file_ptr, *test_file_ptr, *data_file_ptr;
+    FILE *training_file_ptr, *test_file_ptr, *data_file_ptr, *output_file_ptr, *weights_file_ptr;
+    
     
     //open output file for writing
     if((output_file_ptr = fopen(OUTPUT_FILE, "w")) == NULL){
@@ -60,6 +77,7 @@ int main(int argc, char** argv){
     std::cout << "determines the size of the first layer(Input_Layer), while\n";
     std::cout << "the number of outputs determines the size of your Output_Layer:\n\n";
     
+    clear_cin_from_white_space();
     std::cin >> temp;
     
     backp.set_training(temp);
@@ -88,13 +106,15 @@ int main(int argc, char** argv){
         std::cout << "--- between 0.01 to 1.0 try 0.5 to start\n";
         std::cout << "separate entries by a space\n";
         std::cout << "example: 0.1 0.5 sets the defaults as mentioned:\n\n";
+        clear_cin_from_white_space();
         std::cin >> error_tolerance >> learning_parameter;
         
         //-----------------------------------------------------------
         //      Open training file for reading
         //-----------------------------------------------------------
-        if((training_file_ptr=fopen(TRAINING_FILE, "r")) == NULL){
+        if((training_file_ptr = fopen(TRAINING_FILE, "r")) == NULL){
             std::cout << "Problem opening file for reading.";
+            perror("Error");
             exit(1);
         }
         data_file_ptr = training_file_ptr; //training on
@@ -104,6 +124,7 @@ int main(int argc, char** argv){
         std::cout << "Please enter the maximum number of cycles for the simulation.\n";
         std::cout << "A cycle is one pass through the data set.\n";
         std::cout << "Try a value of 10 to start with.\n";
+        clear_cin_from_white_space();
         std::cin >> max_cycles;
     }else{
         if((test_file_ptr=fopen(TEST_FILE, "r")) == NULL){
@@ -268,12 +289,6 @@ int main(int argc, char** argv){
     
     return 0;
 }
-
-
-
-
-
-
 
 
 
